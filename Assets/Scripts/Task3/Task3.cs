@@ -8,7 +8,7 @@ namespace GyreRigTask.Task3
     {
         void Call();
     }
-    struct SomeStruct : ISomeInterface
+    class SomeStruct : ISomeInterface
     {
         public void Call(){ }
     }
@@ -17,10 +17,10 @@ namespace GyreRigTask.Task3
         public void Run()
         {
             var someStruct = new SomeStruct();
-            someStruct = (SomeStruct)SomeMethod(someStruct);
+            SomeMethod(someStruct);
         }
 
-        public ISomeInterface SomeMethod(ISomeInterface @interface)
+        public void SomeMethod(ISomeInterface @interface)
         {
             @interface.Call();
             return @interface;
